@@ -24,7 +24,7 @@ export interface Hero {
   imageSrc: string;
   name: string;
   description: JSX.Element;
-  actions: HeroActionItem[];
+  actions?: HeroActionItem[];
 }
 
 interface HeroActionItem {
@@ -66,6 +66,7 @@ export interface Skill {
   name: string;
   level: number;
   max?: number;
+  details?: string;
 }
 
 export interface SkillGroup {
@@ -90,7 +91,7 @@ export interface TimelineItem {
   date: string;
   location: string;
   title: string;
-  content: JSX.Element;
+  content?: JSX.Element;
 }
 
 /**

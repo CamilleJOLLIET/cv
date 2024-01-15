@@ -1,18 +1,15 @@
 import {
   AcademicCapIcon,
-  ArrowDownTrayIcon,
   BuildingOffice2Icon,
   CalendarIcon,
+  EnvelopeIcon,
   FlagIcon,
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
 import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
@@ -25,7 +22,7 @@ import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
 import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
 import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import profilepic from '../images/profilepic.jpg';
+import profilepic from '../images/profilepic.png';
 import testimonialImage from '../images/testimonial.webp';
 import {
   About,
@@ -44,22 +41,21 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  title: 'CV de Camille JOLLIET',
+  description: "Site construit avec Next.js et TailwindCss",
 };
 
 /**
  * Section definition
  */
 export const SectionId = {
-  Hero: 'hero',
+  Home: 'home',
   About: 'about',
   Contact: 'contact',
-  Portfolio: 'portfolio',
   Resume: 'resume',
   Skills: 'skills',
-  Stats: 'stats',
   Testimonials: 'testimonials',
+  Portfolio: 'portfolio'
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -69,34 +65,27 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `Camille JOLLIET`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        Développeur <strong className="text-stone-100">Front</strong>, passioné d'Art et de nouvelles technologies.
       </p>
     </>
   ),
-  actions: [
-    {
-      href: '/assets/resume.pdf',
-      text: 'Resume',
-      primary: true,
-      Icon: ArrowDownTrayIcon,
-    },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
-  ],
+  // actions: [
+  //   {
+  //     href: '/assets/resume.pdf',
+  //     text: 'Resume',
+  //     primary: true,
+  //     Icon: ArrowDownTrayIcon,
+  //   },
+  //   {
+  //     href: `#${SectionId.Contact}`,
+  //     text: 'Contact',
+  //     primary: false,
+  //   },
+  // ],
 };
 
 /**
@@ -104,16 +93,18 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `Mes dix années d’expériences dans le commerce,
+  essentiellement centrées sur les produits culturels et multimédias m’ont permis de développer
+  une capacité d’expertise pointue au service du client.
+  Ayant toujours envie d’apprendre des équipes qui m’entourent et des défis qui me sont proposés,
+  je me suis tourné il y a cinq ans vers un secteur qui me passione depuis toujours : le développement Web.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Localité', text: 'Marseille, Bouches-du-Rhône', Icon: MapIcon},
+    {label: 'Age', text: '36', Icon: CalendarIcon},
+    {label: 'Nationalité', text: 'Française', Icon: FlagIcon},
+    {label: 'Passions', text: 'Dessin, Musique, Randonnée, Voyages', Icon: SparklesIcon},
+    {label: 'Études', text: '3W Academy', Icon: AcademicCapIcon},
+    {label: 'Emploi', text: 'Disponible', Icon: BuildingOffice2Icon},
   ],
 };
 
@@ -122,70 +113,67 @@ export const aboutData: About = {
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Spoken languages',
+    name: 'Frontend',
     skills: [
       {
-        name: 'English',
-        level: 10,
+        name: 'HTML 5',
+        level: 9,
+        details: 'Sémantique, WebComponents, Accessibilité, SEO'
       },
       {
-        name: 'French',
-        level: 4,
+        name: 'CSS 3',
+        level: 9,
+        details: 'Responsive, SCSS, BEM, Framework, Design System'
       },
       {
-        name: 'Spanish',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Frontend development',
-    skills: [
-      {
-        name: 'React',
+        name: 'Angular',
         level: 9,
       },
       {
         name: 'Typescript',
-        level: 7,
-      },
-      {
-        name: 'GraphQL',
-        level: 6,
-      },
-    ],
-  },
-  {
-    name: 'Backend development',
-    skills: [
-      {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
-      },
-    ],
-  },
-  {
-    name: 'Mobile development',
-    skills: [
-      {
-        name: 'React Native',
         level: 9,
       },
       {
-        name: 'Flutter',
-        level: 4,
+        name: 'Tests unitaires, tests d\'intégration',
+        level: 8,
+        details: 'Jasmine, Karma, Jest'
       },
       {
-        name: 'Swift',
-        level: 3,
+        name: 'React, Next.js, Vue',
+        level: 6,
+      }
+    ],
+  },
+  {
+    name: 'Backend',
+    skills: [
+      {
+        name: 'PHP 7',
+        level: 6,
+        details: 'P.O.O, Symfony 4'
+      },
+      {
+        name: 'SQL, NoSQL',
+        level: 6,
+        details: 'SGBDR, MySql, MongoDB'
+      },
+      {
+        name: 'Node.js, Nest.js',
+        level: 5,
+      },
+    ],
+  },
+  {
+    name: 'DevOps',
+    skills: [
+      {
+        name: 'Docker, Google Cloud Platform',
+        level: 6,
+      },
+      {
+        name: 'CI/CD',
+        level: 6,
+        details: 'Workflows, Pipelines GitHub et Gitlab'
       },
     ],
   },
@@ -268,39 +256,92 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'Janvier 2019',
+    location: 'Titre RNCP Niv III (équivalent Bac+2) chez 3W Academy, Marseille',
+    title: 'Intégrateur développeur en réalisation d’applications Web',
+    content:
+    <div>
+      <div className="pb-4 text-gray-300">
+        <p><b>Intégration à partir de maquettes</b></p>
+        <p>Mock-up, dynamique, sémantique, Responsive design, Mobile first, Bootstrap, JQuery, Flexbox, Grid.</p>
+      </div>
+      <div className="pb-4 text-gray-300">
+        <p><b>Création d’une application Vélib’</b></p>
+        <p>AJAX, Web API, JQuery.</p>
+      </div>
+      <div className="pb-4 text-gray-300">
+        <p><b>Création d’un réseau social</b></p>
+        <p>Authentification, Habilitation simplifiée, C.R.U.D, P.O.O, modèle M.V.C.</p>
+      </div>
+      <div className="pb-4 text-gray-300">
+        <p><b>Création d’un site de restauration</b></p>
+        <p>Habilitation fine, système de réservation, de prise de commande avec panier, d’état des lieux et de gestion administrateur, P.O.O, modèle M.V.C.</p>
+      </div>
+    </div>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: '2005-2006',
+    location: 'Faculté d’Aix-en-Provence',
+    title: 'L1 d’Arts plastiques'
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: '2019 - 2024',
+    location: 'La Provence - MARSEILLE',
+    title: 'Développeur Front - Développeur Senior - Lead Front',
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
+      <div className="text-gray-300">
+        <div className="pb-4">
+          <p className="text-white"><b>Maintenance et évolution des applicatifs existants</b></p>
+          <p>Sites desktop, mobile et applications de Laprovence.com et Corsematin.com. Backoffice éditorial.</p>
+          <p><i>JS Natif, SCSS, BEM, HTML sémantique.</i></p>
+        </div>
+        <div className="pb-4">
+        <p className="text-white"><b>Création de abonnement.laprovence.com</b></p>
+          <p><i>JS Natif, SCSS, BEM, HTML sémantique.</i></p>
+        </div>
+        <div className="pb-4">
+        <p className="text-white"><b>Création de moncompte.laprovence.com</b></p>
+          <p><i>Angular 14, Typescript 4.2</i></p>
+        </div>
+        <div className="pb-4">
+        <p className="text-white"><b>Migration Cloud chez GCP, refonte du Backoffice éditorial et des APIs</b></p>
+          <p><i>Docker, CI/CD, Angular 14, TypeScript 4.2, OpenAPI</i></p>
+        </div>
+        <div className="pb-4">
+        <p className="text-white"><b>Création du Design System Revolue</b></p>
+          <p><i>React 18, Storybook, Chromatics, Versioning, CI/CD</i></p>
+        </div>
+        <div>
+        <p className="text-white"><b>Refonte Laprovence.com et Corsematin.com</b></p>
+          <p><i>Déploiement de Revolue, Next.js, SSR</i></p>
+        </div>
+      </div>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: '2009 - 2019',
+    location: 'Géant CASINO Valmante - MARSEILLE',
+    title: 'Responsable commercial Culturel et Multimédia',
     content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+      <div>
+        <p className="text-gray-300">Gestion des stocks et animation du secteur.</p>
+        <p className="text-gray-300">Positionnement stratégique et suivi des temps forts.</p>
+        <p className="text-gray-300">Animation et formation de l'équipe.</p>
+        <p className="text-gray-300">Coordination des équipes lors d'implantations ou de rénovations.</p>
+      </div>
+    ),
+  },
+  {
+    date: '2007 - 2008',
+    location: 'Unis-Cité Méditerrannée - MARSEILLE',
+    title: 'Volontaire Associatif',
+    content: (
+      <p className="pb-4 text-gray-300">
+        Associations Les Petits Frères des Pauvres, EMMAÜS, ATD 1/4 Monde, AFLAM, Les Têtes de l'Art,
+        Banque Alimentaire, Boud'Mer.
       </p>
     ),
   },
@@ -355,8 +396,8 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      text: 'CamilleJOLLIET',
+      href: 'https://github.com/CamilleJOLLIET',
     },
   ],
 };
@@ -365,9 +406,7 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/CamilleJOLLIET'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/camille-jolliet-750847179/'},
+  {label: 'Mail', Icon: EnvelopeIcon, href: 'mailto:camillejolliet@gmail.com'},
 ];

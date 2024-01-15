@@ -12,7 +12,7 @@ export const headerID = 'headerNav';
 const Header: FC = memo(() => {
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
   const navSections = useMemo(
-    () => [SectionId.About, SectionId.Resume, SectionId.Portfolio, SectionId.Testimonials, SectionId.Contact],
+    () => [SectionId.Home, SectionId.About, SectionId.Skills, SectionId.Resume, SectionId.Contact],
     [],
   );
 
@@ -39,15 +39,46 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
     return (
       <header className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block" id={headerID}>
         <nav className="flex justify-center gap-x-8">
-          {navSections.map(section => (
-            <NavItem
-              activeClass={activeClass}
-              current={section === currentSection}
-              inactiveClass={inactiveClass}
-              key={section}
-              section={section}
-            />
-          ))}
+           <NavItem
+            activeClass={activeClass}
+            current={navSections[0] === currentSection}
+            inactiveClass={inactiveClass}
+            key={navSections[0]}
+            section={navSections[0]}
+            label="Accueil"
+          />
+          <NavItem
+            activeClass={activeClass}
+            current={navSections[1] === currentSection}
+            inactiveClass={inactiveClass}
+            key={navSections[1]}
+            section={navSections[1]}
+            label="Présentation"
+          />
+          <NavItem
+            activeClass={activeClass}
+            current={navSections[2] === currentSection}
+            inactiveClass={inactiveClass}
+            key={navSections[2]}
+            section={navSections[2]}
+            label="Compétences"
+          />
+          <NavItem
+            activeClass={activeClass}
+            current={navSections[3] === currentSection}
+            inactiveClass={inactiveClass}
+            key={navSections[3]}
+            section={navSections[3]}
+            label="Expériences & Formations"
+          />
+          <NavItem
+            activeClass={activeClass}
+            current={navSections[4] === currentSection}
+            inactiveClass={inactiveClass}
+            key={navSections[4]}
+            section={navSections[4]}
+            label="Contact"
+          />
         </nav>
       </header>
     );
@@ -97,16 +128,38 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
               leaveTo="-translate-x-full">
               <div className="relative w-4/5 bg-stone-800">
                 <nav className="mt-5 flex flex-col gap-y-2 px-2">
-                  {navSections.map(section => (
-                    <NavItem
-                      activeClass={activeClass}
-                      current={section === currentSection}
-                      inactiveClass={inactiveClass}
-                      key={section}
-                      onClick={toggleOpen}
-                      section={section}
-                    />
-                  ))}
+                <NavItem
+                  activeClass={activeClass}
+                  current={navSections[0] === currentSection}
+                  inactiveClass={inactiveClass}
+                  key={navSections[0]}
+                  section={navSections[0]}
+                  label="Accueil"
+                />
+                <NavItem
+                  activeClass={activeClass}
+                  current={navSections[1] === currentSection}
+                  inactiveClass={inactiveClass}
+                  key={navSections[1]}
+                  section={navSections[1]}
+                  label="Présentation"
+                />
+                <NavItem
+                  activeClass={activeClass}
+                  current={navSections[2] === currentSection}
+                  inactiveClass={inactiveClass}
+                  key={navSections[2]}
+                  section={navSections[2]}
+                  label="Formations et Compétences"
+                />
+                <NavItem
+                  activeClass={activeClass}
+                  current={navSections[3] === currentSection}
+                  inactiveClass={inactiveClass}
+                  key={navSections[3]}
+                  section={navSections[3]}
+                  label="Contact"
+                />
                 </nav>
               </div>
             </Transition.Child>
@@ -118,19 +171,21 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
 );
 
 const NavItem: FC<{
+  label: string;
   section: string;
   current: boolean;
   activeClass: string;
   inactiveClass: string;
   onClick?: () => void;
-}> = memo(({section, current, inactiveClass, activeClass, onClick}) => {
+}> = memo(({label, section, current, inactiveClass, activeClass, onClick}) => {
   return (
     <Link
       className={classNames(current ? activeClass : inactiveClass)}
       href={`/#${section}`}
       key={section}
-      onClick={onClick}>
-      {section}
+      onClick={onClick}
+    >
+      {label}
     </Link>
   );
 });
