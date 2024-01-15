@@ -1,7 +1,7 @@
 import {ChevronUpIcon} from '@heroicons/react/24/solid';
+import Link from 'next/link';
 import {FC, memo} from 'react';
 
-import Link from 'next/link';
 import {SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 import Socials from '../Socials';
