@@ -10,6 +10,7 @@ export const useNavObserver = (selectors: string, handler: (section: SectionId |
     const headingsArray = Array.from(headings);
     const headerWrapper = document.getElementById(headerID);
 
+    console.log({headings, headingsArray, headerWrapper})
     // Create the IntersectionObserver API
     const observer = new IntersectionObserver(
       entries => {
@@ -26,6 +27,7 @@ export const useNavObserver = (selectors: string, handler: (section: SectionId |
               aboveToc: currentY < headerWrapper.getBoundingClientRect().y,
               belowToc: !(currentY < headerWrapper.getBoundingClientRect().y),
             };
+            console.log(decision)
             if (decision.isIntersecting) {
               // Header at 30% from the top, update to current header
               handler(decision.id as SectionId);
