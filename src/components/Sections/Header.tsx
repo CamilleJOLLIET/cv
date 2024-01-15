@@ -44,40 +44,40 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
             current={navSections[0] === currentSection}
             inactiveClass={inactiveClass}
             key={navSections[0]}
-            section={navSections[0]}
             label="Accueil"
+            section={navSections[0]}
           />
           <NavItem
             activeClass={activeClass}
             current={navSections[1] === currentSection}
             inactiveClass={inactiveClass}
             key={navSections[1]}
-            section={navSections[1]}
             label="Présentation"
+            section={navSections[1]}
           />
           <NavItem
             activeClass={activeClass}
             current={navSections[2] === currentSection}
             inactiveClass={inactiveClass}
             key={navSections[2]}
-            section={navSections[2]}
             label="Compétences"
+            section={navSections[2]}
           />
           <NavItem
             activeClass={activeClass}
             current={navSections[3] === currentSection}
             inactiveClass={inactiveClass}
             key={navSections[3]}
-            section={navSections[3]}
             label="Expériences & Formations"
+            section={navSections[3]}
           />
           <NavItem
             activeClass={activeClass}
             current={navSections[4] === currentSection}
             inactiveClass={inactiveClass}
             key={navSections[4]}
-            section={navSections[4]}
             label="Contact"
+            section={navSections[4]}
           />
         </nav>
       </header>
@@ -133,32 +133,32 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
                   current={navSections[0] === currentSection}
                   inactiveClass={inactiveClass}
                   key={navSections[0]}
-                  section={navSections[0]}
                   label="Accueil"
+                  section={navSections[0]}
                 />
                 <NavItem
                   activeClass={activeClass}
                   current={navSections[1] === currentSection}
                   inactiveClass={inactiveClass}
                   key={navSections[1]}
-                  section={navSections[1]}
                   label="Présentation"
+                  section={navSections[1]}
                 />
                 <NavItem
                   activeClass={activeClass}
                   current={navSections[2] === currentSection}
                   inactiveClass={inactiveClass}
                   key={navSections[2]}
-                  section={navSections[2]}
                   label="Formations et Compétences"
+                  section={navSections[2]}
                 />
                 <NavItem
                   activeClass={activeClass}
                   current={navSections[3] === currentSection}
                   inactiveClass={inactiveClass}
                   key={navSections[3]}
-                  section={navSections[3]}
                   label="Contact"
+                  section={navSections[3]}
                 />
                 </nav>
               </div>
