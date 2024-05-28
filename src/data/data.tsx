@@ -69,7 +69,7 @@ export const heroData: Hero = {
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Développeur <strong className="text-stone-100">Front</strong>, passioné d'Art et de nouvelles technologies.
+        Développeur <strong className="text-stone-100">Front</strong>, passionné d'Art et de nouvelles technologies.
       </p>
     </>
   ),
@@ -97,7 +97,7 @@ export const aboutData: About = {
   essentiellement centrées sur les produits culturels et multimédias m’ont permis de développer
   une capacité d’expertise pointue au service du client.
   Ayant toujours envie d’apprendre des équipes qui m’entourent et des défis qui me sont proposés,
-  je me suis tourné il y a cinq ans vers un secteur qui me passione depuis toujours : le développement Web.`,
+  je me suis tourné il y a cinq ans vers un secteur qui me passionne depuis toujours : le développement Web.`,
   aboutItems: [
     {label: 'Localité', text: 'Marseille, Bouches-du-Rhône', Icon: MapIcon},
     {label: 'Age', text: '36', Icon: CalendarIcon},
